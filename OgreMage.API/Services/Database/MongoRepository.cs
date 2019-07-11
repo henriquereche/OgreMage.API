@@ -4,7 +4,6 @@ using OgreMage.API.Contracts.Database;
 using OgreMage.API.Contracts.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace OgreMage.API.Services.Database

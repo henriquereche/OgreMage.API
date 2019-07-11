@@ -1,17 +1,13 @@
 ﻿using LinqKit;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
-using MongoDB.Driver;
 using OgreMage.API.Contracts.Database;
 using OgreMage.API.Filters;
 using OgreMage.API.Models;
 using OgreMage.API.Models.Database;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OgreMage.API.Controllers
 {

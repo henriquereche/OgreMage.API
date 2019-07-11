@@ -1,8 +1,6 @@
-﻿using MongoDB.Bson.Serialization;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using OgreMage.API.Contracts.Database;
 using OgreMage.API.Contracts.Models;
-using OgreMage.API.Models.Database;
 
 namespace OgreMage.API.Services.Database
 {

@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-using OgreMage.API.Contracts.Models;
+﻿using OgreMage.API.Contracts.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
