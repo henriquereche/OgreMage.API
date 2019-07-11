@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using OgreMage.API.Contracts.Database;
 using OgreMage.API.HostedServices;
 using OgreMage.API.Services.Database;
@@ -33,12 +26,15 @@ namespace OgreMage.API
 
             services.AddHostedService<PendingFeedProcessor>();
             services.AddTransient<IMongoRepository, MongoRepository>();
-            services.AddTransient<IMongoConnection, MongoConnection>(factory => 
-                new MongoConnection(
-                    "mongodb://api:api123@ds133187.mlab.com:33187/ogre-mage", 
-                    "ogre-mage"
-                )
-            );
+            services.AddTransient<IMongoConnection, MongoConnection>(factory =>
+            {
+                IConfiguration mongoConnection = this.Configuration.GetSection("MongoConnection");
+
+                return new MongoConnection(
+                    mongoConnection["Connection"],
+                    mongoConnection["Database"]
+                );
+            });
 
             services.AddSwaggerGen(c =>
             {
